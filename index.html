@@ -2,9 +2,133 @@
 <html>
 <head>
   <title>GokulX</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Modern font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #0b0b0c;
+      color: #eaeaea;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 56px;
+      margin: 0;
+      letter-spacing: -1px;
+    }
+
+    .tagline {
+      font-size: 18px;
+      margin-top: 12px;
+      color: #9ca3af;
+    }
+
+    .btn {
+      display: inline-block;
+      margin: 20px 10px;
+      padding: 12px 22px;
+      border-radius: 8px;
+      background: #1f2937;
+      color: #eaeaea;
+      text-decoration: none;
+      transition: 0.2s ease;
+    }
+
+    .btn:hover {
+      background: #374151;
+    }
+
+    .section {
+      margin-top: 80px;
+      text-align: left;
+    }
+
+    h2 {
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    .card {
+      background: #111827;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      background: #1f2937;
+    }
+
+    .card h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .card p {
+      margin-top: 8px;
+      color: #9ca3af;
+      font-size: 14px;
+    }
+
+    .skills {
+      color: #9ca3af;
+      line-height: 1.8;
+    }
+
+    .contact {
+      color: #9ca3af;
+    }
+
+  </style>
 </head>
+
 <body>
-  <h1>GokulX 🚀</h1>
-  <p>Cybersecurity | Embedded | Builder</p>
+
+  <div class="container">
+    <h1>GokulX</h1>
+    <p class="tagline">Cybersecurity · Embedded Systems · Builder</p>
+
+    <a class="btn" href="#projects">Projects</a>
+    <a class="btn" href="https://github.com/Technology-lover">GitHub</a>
+  </div>
+
+  <div class="container section" id="projects">
+    <h2>Projects</h2>
+
+    <div class="card">
+      <h3>ESP32 Radar</h3>
+      <p>WiFi signal-based motion detection using ESP32.</p>
+    </div>
+
+    <div class="card">
+      <h3>NFC Toolkit</h3>
+      <p>PN532-based NFC/RFID toolkit.</p>
+    </div>
+
+  </div>
+
+  <div class="container section">
+    <h2>Skills</h2>
+    <p class="skills">Embedded Systems · Cybersecurity · Linux · Networking</p>
+  </div>
+
+  <div class="container section">
+    <h2>Contact</h2>
+    <p class="contact">gokul@gokulx.com</p>
+  </div>
+
 </body>
 </html>
