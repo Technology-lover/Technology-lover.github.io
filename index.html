@@ -1,268 +1,283 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cyber & IoT Enthusiast</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            --bg-color: #0f1115;
-            --surface-color: #161b22;
-            --accent-color: #3fb950;
-            --text-main: #c9d1d9;
-            --text-muted: #8b949e;
-            --border-color: #30363d;
-            --font-ui: 'Inter', sans-serif;
-            --font-code: 'JetBrains Mono', monospace;
-            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            font-family: var(--font-ui);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        a { text-decoration: none; color: inherit; transition: var(--transition); }
-        ul { list-style: none; }
-
-        .container { max-width: 1024px; margin: 0 auto; padding: 0 2rem; }
-        .section-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 2rem; border-left: 4px solid var(--accent-color); padding-left: 1rem; }
-
-        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
-        .fade-in.visible { opacity: 1; transform: translateY(0); }
-
-        header {
-            min-height: 90vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            padding-top: 4rem;
-            gap: 4rem;
-        }
-
-        .terminal-window {
-            background-color: #1c2128;
-            border-radius: 6px;
-            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
-            font-family: var(--font-code);
-            overflow: hidden;
-            width: 100%;
-            max-width: 600px;
-            border: 1px solid var(--border-color);
-        }
-
-        .terminal-header {
-            background: #21262d;
-            padding: 8px 1rem;
-            display: flex;
-            gap: 6px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .dot { width: 10px; height: 10px; border-radius: 50%; background: #484f58; }
-
-        .terminal-body { padding: 1.5rem; color: var(--accent-color); font-family: var(--font-code); font-size: 0.9rem; white-space: pre-wrap; }
-
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-bottom: 6rem; }
-
-        @media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; gap: 2rem; } }
-
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 1rem; margin-bottom: 6rem; }
-
-        .skill-card {
-            background: var(--surface-color);
-            border: 1px solid var(--border-color);
-            padding: 1.5rem;
-            text-align: center;
-            border-radius: 4px;
-            transition: var(--transition);
-        }
-
-        .skill-card:hover { transform: translateY(-3px); border-color: var(--accent-color); }
-        .skill-icon { font-size: 2rem; display: block; margin-bottom: 0.5rem; }
-
-        .project-card {
-            background: var(--surface-color);
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: var(--transition);
-        }
-
-        .project-card:hover { transform: scale(1.02); }
-
-        .tags span { font-family: var(--font-code); font-size: 0.75rem; color: var(--text-muted); background: rgba(255,255,255,0.05); padding: 2px 6px; border-radius: 4px; margin-right: 4px; }
-
-        .btn {
-            display: inline-block;
-            margin-top: 1rem;
-            font-family: var(--font-code);
-            font-size: 0.85rem;
-            color: var(--accent-color);
-            border-bottom: 2px solid transparent;
-            cursor: pointer;
-        }
-
-        .btn:hover { border-color: var(--accent-color); }
-
-        footer { padding: 2rem; text-align: center; color: var(--text-muted); font-size: 0.9rem; border-top: 1px solid var(--border-color); margin-top: 4rem; }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#071326">
+<meta name="description" content="Tempbin by GokulX — self-hosted temporary file sharing and pastebin for organisations, with configurable expiration and control over your data.">
+<title>Tempbin — Temporary file sharing by GokulX</title>
+<style>
+  :root{--navy:#071326;--navy2:#0b1b33;--ink:#101d32;--muted:#536782;--blue:#1677ff;--cyan:#25c5ff;--line:#dce6f2;--pale:#f4f8fd;--green:#14c99a;--white:#fff}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:#f4f8fd;line-height:1.55}
+  a{color:inherit;text-decoration:none}
+  button,a{ -webkit-tap-highlight-color:transparent}
+  .container{width:min(1160px,calc(100% - 40px));margin:auto}
+  .top{color:#fff;background:radial-gradient(ellipse at 82% 60%,rgba(94,45,176,.27),transparent 35%),radial-gradient(ellipse at 72% 12%,rgba(0,134,255,.15),transparent 32%),linear-gradient(120deg,#071022,#04162b 65%,#0a1530);overflow:hidden;position:relative}
+  .top:before{content:"";position:absolute;inset:0;opacity:.18;background-image:linear-gradient(rgba(95,153,219,.14) 1px,transparent 1px),linear-gradient(90deg,rgba(95,153,219,.14) 1px,transparent 1px);background-size:44px 44px;mask-image:linear-gradient(to bottom,transparent,#000 25%,#000 80%,transparent)}
+  header{height:78px;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:1}
+  .brand{font-size:1.45rem;font-weight:850;letter-spacing:-.06em}.brand span{color:#2588ff}
+  nav{display:flex;gap:34px;align-items:center;color:#d3deed;font-size:.9rem}
+  nav a:hover{color:#fff}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:13px 19px;border-radius:12px;border:1px solid transparent;font:700 .92rem inherit;font-weight:700;cursor:pointer;transition:transform .18s,filter .18s}
+  .btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+  .btn-primary{color:white;background:linear-gradient(110deg,#0789ff,#2865f5);box-shadow:0 10px 25px rgba(0,111,255,.2)}
+  .btn-ghost{color:white;border-color:#8093ad;background:rgba(255,255,255,.025)}
+  .btn-light{background:#fff;color:#0c1b31;border-color:#d7e2ef}
+  .hero{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center;padding:55px 0 58px}
+  .eyebrow{display:inline-flex;align-items:center;gap:9px;padding:7px 13px;border-radius:99px;background:rgba(27,91,159,.27);border:1px solid rgba(132,185,255,.14);font-size:.79rem;color:#e5f0ff;margin-bottom:18px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#21e0b0;box-shadow:0 0 13px #21e0b0}
+  h1{font-size:clamp(3.3rem,6.4vw,5.2rem);line-height:.98;letter-spacing:-.075em;margin:0 0 17px;font-weight:850}
+  .gradient{background:linear-gradient(95deg,#fff 12%,#6dcaff 56%,#3474ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero h2{font-size:clamp(1.25rem,2.3vw,1.65rem);line-height:1.3;letter-spacing:-.025em;margin:0 0 16px;max-width:520px}
+  .hero p{color:#b9c8dc;font-size:1.02rem;max-width:540px;margin:0 0 25px}
+  .actions{display:flex;gap:13px;flex-wrap:wrap}
+  .hero-note{font-size:.78rem!important;color:#8296b2!important;margin-top:16px!important;margin-bottom:0!important}
+  .mock-wrap{position:relative}
+  .app-window{border:1px solid rgba(166,199,238,.25);border-radius:21px;background:linear-gradient(145deg,rgba(25,43,67,.97),rgba(10,25,45,.98));box-shadow:0 28px 75px rgba(0,0,0,.32);overflow:hidden;transform:perspective(1200px) rotateY(-3deg)}
+  .app-head{display:flex;align-items:center;justify-content:space-between;padding:17px 20px;border-bottom:1px solid rgba(189,211,241,.12);font-weight:750}
+  .app-symbol{display:flex;gap:9px;align-items:center}.mini-logo{display:grid;place-items:center;width:28px;height:28px;background:linear-gradient(145deg,#159aff,#5b65ff);border-radius:8px;font-size:.9rem}
+  .window-dots{display:flex;gap:5px}.window-dots i{width:7px;height:7px;border-radius:50%;background:#6d829c}
+  .app-body{padding:17px}
+  .tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+  .tab{padding:10px;border:1px solid rgba(160,190,226,.18);border-radius:10px;background:rgba(255,255,255,.035);color:#b9cbe1;text-align:center;font-size:.82rem;font-weight:700;cursor:pointer}
+  .tab.active{color:#087bff;background:#f8fbff;border-color:#f8fbff}
+  .upload{padding:24px 12px;border:1px dashed #7e9fc7;border-radius:12px;background:#f4f8fe;color:#182d49;text-align:center}
+  .upload .cloud{font-size:2.2rem;color:#1677ff;line-height:1.2}.upload strong{display:block;font-size:.88rem;margin:8px 0 4px}.upload small{color:#617590;font-size:.73rem}
+  .formrow{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:13px 0}
+  .field label{display:block;color:#c1d1e4;font-size:.69rem;margin-bottom:5px}
+  .field select{width:100%;border:1px solid #334b68;border-radius:8px;padding:9px;background:#132841;color:#e9f2ff;font-size:.77rem}
+  .app-submit{width:100%;border:0;border-radius:9px;background:linear-gradient(90deg,#0589ff,#2468f5);color:#fff;padding:12px;font-weight:750;cursor:pointer}
+  .mock-alert{display:flex;align-items:center;gap:10px;color:#8cf0cf;background:rgba(0,186,138,.11);border:1px solid rgba(0,205,155,.15);padding:12px 15px;border-radius:12px;margin-top:14px;font-size:.78rem}
+  .mock-alert span:first-child{font-size:1.2rem}
+  .section{padding:62px 0}
+  .features{display:grid;grid-template-columns:repeat(5,1fr);gap:23px;margin-top:-1px}
+  .feature{text-align:center;padding:0 5px}
+  .feature-icon{width:56px;height:56px;border-radius:18px;display:grid;place-items:center;margin:0 auto 13px;font-size:1.5rem}
+  .blue{background:#e0efff;color:#087bff}.green{background:#d9faf0;color:#00a77c}.purple{background:#eee7ff;color:#7852ec}.orange{background:#fff0dc;color:#e98b17}.red{background:#ffe7e9;color:#ed4658}
+  .feature h3{font-size:.94rem;margin:0 0 6px;letter-spacing:-.02em}.feature p{font-size:.82rem;color:var(--muted);margin:0}
+  .showcase{padding:5px 0 55px}
+  .showcase-grid{display:grid;grid-template-columns:1fr 1fr;gap:23px}
+  .panel{border-radius:19px;padding:23px;box-shadow:0 8px 30px rgba(25,56,94,.05)}
+  .panel-dark{background:linear-gradient(145deg,#101f35,#071326);color:#fff}
+  .panel-light{background:#fff;border:1px solid #e6edf6}
+  .panel h3{margin:0 0 5px;font-size:1.2rem;letter-spacing:-.035em}.panel>p{margin:0 0 17px;color:#bac9dc;font-size:.87rem}.panel-light>p{color:var(--muted)}
+  .editor{border:1px solid #293d56;background:#0a1423;border-radius:12px;overflow:hidden}
+  .editor-head{display:flex;gap:17px;align-items:center;padding:10px 13px;border-bottom:1px solid #26374c;color:#a7b9d0;font-size:.75rem}
+  .editor-head span:first-child{color:#fff}.expiry{margin-left:auto;border:1px solid #344960;border-radius:7px;padding:4px 7px;color:#e0eafa;background:#132238}
+  pre{margin:0;padding:13px 15px;color:#c9d9ed;font: .77rem/1.8 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap;overflow-wrap:anywhere}
+  .code-green{color:#8de6ae}.code-yellow{color:#ffd37a}.file-list{border:1px solid #e1eaf5;border-radius:12px;overflow:hidden}
+  .file{display:flex;align-items:center;gap:12px;padding:10px 12px;border-bottom:1px solid #e8eef6}.file:last-child{border:0}
+  .file-icon{width:37px;height:37px;display:grid;place-items:center;border-radius:10px;background:#e6f1ff;color:#1677ff;font-size:1.15rem;flex-shrink:0}
+  .file:nth-child(2) .file-icon{background:#e6f6ff;color:#1395df}.file:nth-child(3) .file-icon{background:#ffebed;color:#ec4d5d}.file:nth-child(4) .file-icon{background:#dff9ef;color:#00a879}
+  .file-info{min-width:0;flex:1}.file-info strong{display:block;font-size:.78rem}.file-info small{color:#687e9a;font-size:.7rem}
+  .download{color:#1677ff;background:#eff6ff;border:0;border-radius:7px;padding:8px;cursor:pointer}
+  .center{text-align:center}.section-heading{font-size:clamp(1.8rem,3vw,2.35rem);letter-spacing:-.055em;margin:0 0 9px}.section-intro{max-width:700px;color:var(--muted);margin:0 auto}
+  .org{padding:4px 0 62px}.org-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:32px;text-align:left}
+  .org-item{display:flex;gap:13px;align-items:flex-start}.org-item .feature-icon{width:48px;height:48px;min-width:48px;margin:0;border-radius:15px;font-size:1.25rem}
+  .org-item h3{margin:1px 0 4px;font-size:.88rem}.org-item p{margin:0;color:var(--muted);font-size:.8rem}
+  .deploy{background:linear-gradient(115deg,#071326,#0b1b35 68%,#111b42);color:#fff;padding:48px 0}
+  .deploy-grid{display:grid;grid-template-columns:1fr .95fr;gap:45px;align-items:center}
+  .deploy p{color:#c1cee0}.platforms{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+  .platform{background:rgba(31,70,115,.35);border:1px solid rgba(152,191,239,.12);border-radius:10px;padding:12px 16px;color:#e1edff;font-size:.83rem;font-weight:650}
+  .terminal{background:#07111e;border:1px solid #263a54;border-radius:14px;overflow:hidden}
+  .terminal-head{display:flex;align-items:center;gap:20px;padding:11px 14px;border-bottom:1px solid #24374e;background:#13243a;color:#b9c9df;font-size:.75rem}.terminal-head b{color:#fff}
+  .terminal pre{font-size:.75rem;color:#d4e2f3;padding:17px}
+  .terminal .greenline{color:#91e8a5}
+  .disclaimer{font-size:.77rem!important;color:#92a7c2!important;margin-top:14px}
+  .about{padding:55px 0}.about-card{background:#fff;border:1px solid #e4ebf5;border-radius:18px;padding:28px;display:flex;justify-content:space-between;align-items:center;gap:25px}
+  .about-card p{color:var(--muted);max-width:700px;margin:7px 0 0}
+  footer{background:#eaf1fa;border-top:1px solid #dce6f2;padding:20px 0;color:#5a6e89;font-size:.78rem}
+  .footer-row{display:flex;justify-content:space-between;gap:20px;align-items:center}.footer-links{display:flex;gap:20px;flex-wrap:wrap}.footer-links a:hover{color:#087bff}
+  .toast{position:fixed;bottom:20px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#0d2038;color:#fff;padding:11px 16px;border-radius:10px;box-shadow:0 10px 35px #00152a40;transition:.2s;z-index:10;font-size:.85rem}.toast.show{opacity:1;transform:translate(-50%,0)}
+  @media(max-width:900px){.hero{gap:30px;grid-template-columns:1fr 1fr}.features{grid-template-columns:repeat(3,1fr);row-gap:28px}.org-grid{grid-template-columns:repeat(2,1fr)}nav{gap:17px}.deploy-grid{gap:25px}}
+  @media(max-width:680px){.container{width:min(100% - 30px,520px)}header{height:68px}.nav-links{display:none}.hero{grid-template-columns:1fr;padding:42px 0 42px;gap:32px}.hero h1{font-size:clamp(3.2rem,17vw,4.7rem)}.hero p{font-size:.96rem}.app-window{transform:none}.features{grid-template-columns:repeat(2,1fr);gap:27px 14px}.feature:last-child{grid-column:1/-1;max-width:220px;justify-self:center}.section{padding:45px 0}.showcase{padding-bottom:42px}.showcase-grid{grid-template-columns:1fr;gap:16px}.panel{padding:18px}.org-grid{grid-template-columns:1fr;gap:22px;margin-top:26px}.deploy-grid{grid-template-columns:1fr;gap:26px}.about-card{align-items:flex-start;flex-direction:column;padding:22px}.footer-row{align-items:flex-start;flex-direction:column}.footer-links{gap:14px}.actions .btn{flex:1}.formrow{gap:8px}.app-body{padding:12px}.upload{padding:20px 8px}}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+</style>
 </head>
 <body>
-
-<div class="container">
-
-    <header id="home">
-        <div class="terminal-window fade-in visible">
-            <div class="terminal-header">
-                <div class="dot"></div><div class="dot"></div><div class="dot"></div>
-            </div>
-            <div class="terminal-body" id="typing-text"></div>
-        </div>
-
-        <div style="margin-top: 2rem; max-width: 600px;" class="fade-in visible">
-            <h1 style="font-size: 3.5rem; line-height: 1.1; margin-bottom: 1rem;">
-                Securing the <br>
-                <span style="color: var(--accent-color); font-family: var(--font-code);">Digital Frontier</span>.
-            </h1>
-            <p style="font-size: 1.25rem; color: var(--text-muted); margin-bottom: 2rem;">
-                Cybersecurity Enthusiast.<br>
-                Obsessed with Linux, IoT, and building resilient systems.
-            </p>
-
-            <div style="display: flex; gap: 1rem;">
-                <a href="#" class="btn" target="_blank">GitHub</a>
-                <a href="#" class="btn" target="_blank">LinkedIn</a>
-            </div>
-        </div>
+<div class="top" id="top">
+  <div class="container">
+    <header>
+      <a class="brand" href="#top" aria-label="GokulX home">Gokul<span>X</span></a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#features">Features</a><a href="#use-cases">Use cases</a><a href="#deployment">Deployment</a><a href="#about">About</a>
+      </nav>
+      <a class="btn btn-primary" href="#about">Explore Tempbin <span aria-hidden="true">↗</span></a>
     </header>
-
-    <section id="skills" style="margin-top: 4rem;">
-        <h2 class="section-title fade-in visible">Technical Arsenal</h2>
-
-        <div class="grid-2">
-            <div class="fade-in visible">
-                <h3 style="font-weight: 600; margin-bottom: 1rem;">Offensive Security</h3>
-                <p style="color: var(--text-muted); font-size: 0.95rem;">Red teaming, penetration testing, and vulnerability assessment to find weaknesses before they are exploited.</p>
-            </div>
-
-            <div class="fade-in visible">
-                <h3 style="font-weight: 600; margin-bottom: 1rem;">Defensive Operations</h3>
-                <p style="color: var(--text-muted); font-size: 0.95rem;">Incident response, threat hunting, and building zero-trust architectures.</p>
-            </div>
-
-            <div class="skills-grid fade-in visible" id="skills-container"></div>
+    <main class="hero">
+      <div>
+        <div class="eyebrow"><span class="dot"></span> Self-hosted <span>·</span> Privacy-minded <span>·</span> Built for teams</div>
+        <h1><span class="gradient">Tempbin</span></h1>
+        <h2>Temporary file sharing and pastebin for your organisation.</h2>
+        <p>A self-hosted way to share files and text snippets with automatic expiration. Keep data on infrastructure you control, with configurable retention, access controls, and auditability.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#features"><span aria-hidden="true">↓</span> Explore features</a>
+          <a class="btn btn-ghost" href="#deployment"><span aria-hidden="true">⌘</span> Deployment options</a>
         </div>
-    </section>
-
-    <section id="projects" style="margin-top: 4rem;">
-        <h2 class="section-title fade-in visible">Featured Projects</h2>
-
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;" id="projects-container"></div>
-    </section>
-
-    <footer>
-        &copy; 2026 . Not Built with secure code principles.
-    </footer>
+        <p class="hero-note">Early-stage project by GokulX. Features shown are a product concept and may still be in development.</p>
+      </div>
+      <div class="mock-wrap" aria-label="Illustrative Tempbin interface preview">
+        <div class="app-window">
+          <div class="app-head"><div class="app-symbol"><span class="mini-logo">↗</span> Tempbin</div><div class="window-dots"><i></i><i></i><i></i></div></div>
+          <div class="app-body">
+            <div class="tabs"><button class="tab active" data-tab="file" type="button">↑ &nbsp;File upload</button><button class="tab" data-tab="text" type="button">▤ &nbsp;Text / paste</button></div>
+            <div class="upload" id="dropzone">
+              <div class="cloud" id="preview-icon">☁</div>
+              <strong id="preview-title">Drop files here or choose a file</strong>
+              <small id="preview-subtitle">Files would expire automatically based on your policy</small>
+              <input type="file" id="file-input" hidden>
+              <button class="btn btn-light" id="choose-file" type="button" style="margin-top:14px;padding:8px 12px;font-size:.77rem">Choose file</button>
+            </div>
+            <div class="formrow">
+              <div class="field"><label for="expiration">Expiration</label><select id="expiration"><option>1 hour</option><option selected>24 hours</option><option>7 days</option><option>30 days</option></select></div>
+              <div class="field"><label for="downloads">Download limit</label><select id="downloads"><option>1 download</option><option>5 downloads</option><option selected>No limit</option></select></div>
+            </div>
+            <button class="app-submit" id="demo-submit" type="button">Preview sharing settings</button>
+          </div>
+        </div>
+        <div class="mock-alert"><span>✓</span><span>Designed around automatic expiration and organisational control</span></div>
+      </div>
+    </main>
+  </div>
 </div>
 
+<section class="section" id="features">
+  <div class="container">
+    <div class="features">
+      <article class="feature"><div class="feature-icon blue">◷</div><h3>Automatic expiration</h3><p>Set a lifetime for shared content and plan for automatic cleanup.</p></article>
+      <article class="feature"><div class="feature-icon green">✓</div><h3>Self-hosted</h3><p>Run on your own infrastructure and keep data within your environment.</p></article>
+      <article class="feature"><div class="feature-icon purple">♙</div><h3>Access controls</h3><p>Plan authentication and permission controls for your organisation.</p></article>
+      <article class="feature"><div class="feature-icon orange">▧</div><h3>Files & paste</h3><p>Share files, logs, code snippets, and plain text in one place.</p></article>
+      <article class="feature"><div class="feature-icon red">≡</div><h3>Auditability</h3><p>Make activity tracking available for administration and review.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="showcase" id="use-cases">
+  <div class="container">
+    <div class="showcase-grid">
+      <article class="panel panel-dark">
+        <h3>Share text in seconds</h3><p>Designed for short-lived code snippets, logs, notes, and diagnostic output.</p>
+        <div class="editor">
+          <div class="editor-head"><span>Text</span><span>Code</span><span>Markdown</span><span class="expiry">Expires in 1 hour⌄</span></div>
+          <pre><span class="code-green"># Example: service log</span>
+[10:24:11] <span class="code-green">INFO</span>  Service started
+[10:24:15] <span class="code-green">INFO</span>  Connected to database
+[10:24:21] <span class="code-yellow">WARN</span>  High memory usage
+[10:24:25] <span class="code-green">INFO</span>  Request completed</pre>
+        </div>
+      </article>
+      <article class="panel panel-light">
+        <h3>Share files with an expiry</h3><p>A concept for temporary transfers with configurable expiration and download limits.</p>
+        <div class="file-list">
+          <div class="file"><div class="file-icon">▧</div><div class="file-info"><strong>server-logs.zip</strong><small>12.4 MB · Example expiry: 24 hours</small></div><span class="download">↓</span></div>
+          <div class="file"><div class="file-icon">▧</div><div class="file-info"><strong>design-mockup.png</strong><small>2.1 MB · Example expiry: 7 days</small></div><span class="download">↓</span></div>
+          <div class="file"><div class="file-icon">▤</div><div class="file-info"><strong>incident-report.pdf</strong><small>856 KB · Example expiry: 1 day</small></div><span class="download">↓</span></div>
+          <div class="file"><div class="file-icon">▦</div><div class="file-info"><strong>data-export.csv</strong><small>4.3 MB · Example expiry: 3 days</small></div><span class="download">↓</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="org" id="organisation">
+  <div class="container center">
+    <h2 class="section-heading">Built for organisations</h2>
+    <p class="section-intro">Tempbin is intended for teams that need a simple, self-hosted way to exchange temporary files and text without relying on a third-party sharing site.</p>
+    <div class="org-grid">
+      <article class="org-item"><div class="feature-icon blue">♙</div><div><h3>Internal collaboration</h3><p>Share logs and snippets between colleagues and teams.</p></div></article>
+      <article class="org-item"><div class="feature-icon green">✓</div><div><h3>Infrastructure control</h3><p>Choose where the service runs and how it is administered.</p></div></article>
+      <article class="org-item"><div class="feature-icon purple">⚙</div><div><h3>Flexible retention</h3><p>Set expiry rules to suit different workflows and policies.</p></div></article>
+      <article class="org-item"><div class="feature-icon orange">▤</div><div><h3>Deployment choices</h3><p>Plan for Linux hosts, containers, or on-premises servers.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="deploy" id="deployment">
+  <div class="container deploy-grid">
+    <div>
+      <h2 class="section-heading">Deploy on your terms.</h2>
+      <p>Tempbin is being designed for organisation-controlled infrastructure. Deployment methods depend on the implementation as it develops.</p>
+      <div class="platforms"><span class="platform">🐧 &nbsp;Linux</span><span class="platform">◈ &nbsp;Docker</span><span class="platform">▤ &nbsp;On-premises</span><span class="platform">☁ &nbsp;Cloud VM</span></div>
+      <p class="disclaimer">Illustrative deployment options — not a claim that production-ready deployment packages are currently available.</p>
+    </div>
+    <div class="terminal">
+      <div class="terminal-head"><b>Getting started</b><span>Concept</span><span style="margin-left:auto">•••</span></div>
+      <pre><span class="greenline"># Example project setup</span>
+git clone https://example.com/your-tempbin-repo.git
+cd tempbin
+
+<span class="greenline"># Follow the project's setup guide</span>
+# Configure storage and expiration policies
+# Enable authentication before team use</pre>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-card">
+      <div><div class="brand" style="color:#101d32">Tempbin <span>by GokulX</span></div><p>A work in progress focused on simple, temporary sharing tools for teams. The aim is to make controlled, self-hosted sharing straightforward and transparent.</p></div>
+      <a class="btn btn-primary" href="mailto:hello@yourdomain.com?subject=Tempbin%20enquiry">Contact the project ↗</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-row">
+    <div>© <span id="year"></span> GokulX. Tempbin is an early-stage project.</div>
+    <div class="footer-links"><a href="#features">Features</a><a href="#deployment">Deployment</a><a href="mailto:hello@yourdomain.com">Contact</a><a href="#top">Back to top ↑</a></div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script>
-    const skills = [
-        { name: "C/C++", icon: "⚡" },
-        { name: "Python", icon: "🐍" },
-        { name: "Arch Linux", icon: "🐧" },
-        { name: "IoT", icon: "📡" },
-        { name: "Wireshark", icon: "🕸️" },
-        { name: "Metasploit", icon: "💊" },
-        { name: "AI Security", icon: "🤖" },
-        { name: "Docker", icon: "🐳" }
-    ];
-
-    const projects = [
-        {
-            title: "Home IoT Lab Monitor",
-            desc: "A Raspberry Pi based dashboard monitoring sensor data from the home lab with encrypted local storage.",
-            tags: ["Python", "MQTT", "Raspberry Pi"]
-        },
-        {
-            title: "Packet Sniffer CLI Tool",
-            desc: "A lightweight C++ utility for analyzing network traffic and identifying suspicious protocols in real-time.",
-            tags: ["C/C++", "Wireshark API", "Networking"]
-        },
-        {
-            title: "Secure Shell Scripting",
-            desc: "Automated backup and rotation scripts hardened against common shell injection vulnerabilities.",
-            tags: ["Bash", "Security", "Automation"]
-        }
-    ];
-
-    document.addEventListener('DOMContentLoaded', () => {
-        const skillsContainer = document.getElementById('skills-container');
-        skills.forEach(skill => {
-            const div = document.createElement('div');
-            div.className = 'skill-card fade-in visible';
-            div.innerHTML = `<span class="skill-icon">${skill.icon}</span><strong>${skill.name}</strong>`;
-            skillsContainer.appendChild(div);
-        });
-
-        const projectsContainer = document.getElementById('projects-container');
-        projects.forEach(proj => {
-            const card = document.createElement('div');
-            card.className = 'project-card fade-in visible';
-            let tagsHtml = proj.tags.map(t => `<span>${t}</span>`).join('');
-            card.innerHTML = `<div><h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">${proj.title}</h3><p style="color: var(--text-muted); font-size: 0.95rem;">${proj.desc}</p><div class="tags" style="margin-top: 1rem;">${tagsHtml}</div></div><a href="#" class="btn">View Source</a>`;
-            projectsContainer.appendChild(card);
-        });
-
-        const lines = [
-            "root@gokulx:~$ whoami\n",
-            "> Chief Information Security Officer\n",
-            "> Cybersecurity Enthusiast\n",
-            "> Passionate about Linux & IoT\n"
-        ];
-
-        const terminalBody = document.getElementById('typing-text');
-        let lineIndex = 0;
-        let charIndex = 0;
-
-        function typeWriter() {
-            if (lineIndex < lines.length) {
-                if (charIndex < lines[lineIndex].length) {
-                    terminalBody.innerHTML += lines[lineIndex].charAt(charIndex);
-                    charIndex++;
-                    setTimeout(typeWriter, 30);
-                } else {
-                    lineIndex++;
-                    charIndex = 0;
-                    setTimeout(typeWriter, 100);
-                }
-            }
-        }
-
-        setTimeout(typeWriter, 500);
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('visible');
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-    });
+  // Interactive product mockup only; no files are uploaded and no backend is connected.
+  const tabs = document.querySelectorAll('.tab');
+  const title = document.getElementById('preview-title');
+  const subtitle = document.getElementById('preview-subtitle');
+  const icon = document.getElementById('preview-icon');
+  const fileInput = document.getElementById('file-input');
+  const chooseFile = document.getElementById('choose-file');
+  const toast = document.getElementById('toast');
+  let mode = 'file', toastTimer;
+  function notify(message){
+    toast.textContent = message;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(()=>toast.classList.remove('show'),2800);
+  }
+  tabs.forEach(tab=>tab.addEventListener('click',()=>{
+    tabs.forEach(t=>t.classList.toggle('active',t===tab));
+    mode = tab.dataset.tab;
+    if(mode==='text'){
+      icon.textContent='▤'; title.textContent='Paste text or a code snippet';
+      subtitle.textContent='Choose an expiry policy for your snippet';
+      chooseFile.textContent='Text sharing preview';
+    }else{
+      icon.textContent='☁'; title.textContent='Drop files here or choose a file';
+      subtitle.textContent='Files would expire automatically based on your policy';
+      chooseFile.textContent='Choose file';
+    }
+  }));
+  chooseFile.addEventListener('click',()=>{
+    if(mode==='text'){notify('Text sharing is a UI preview; no backend is connected.');return;}
+    fileInput.click();
+  });
+  fileInput.addEventListener('change',()=>{
+    if(fileInput.files && fileInput.files[0]){
+      title.textContent=fileInput.files[0].name;
+      subtitle.textContent='Selected locally for this preview only — not uploaded';
+      notify('File selected locally. Nothing was uploaded.');
+    }
+  });
+  document.getElementById('demo-submit').addEventListener('click',()=>{
+    const expiry=document.getElementById('expiration').value;
+    const downloads=document.getElementById('downloads').value;
+    notify('Preview settings: expires in '+expiry+' · '+downloads+'. No upload occurred.');
+  });
+  document.getElementById('year').textContent=new Date().getFullYear();
 </script>
-
 </body>
 </html>
